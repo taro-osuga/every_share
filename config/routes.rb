@@ -6,4 +6,12 @@ Rails.application.routes.draw do
              controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
   resources :users, only: [:show]
+  resources :items, except: [:edit] do
+    member do
+      get 'listing'
+      get 'pricing'
+      get 'description'
+      get 'location'
+    end
+  end
 end
