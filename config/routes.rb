@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'listing'
       get 'pricing'
       get 'description'
+      get 'photo_upload'
       get 'location'
     end
   end

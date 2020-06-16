@@ -1,2 +1,42 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create your item
+  </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= form_for @item do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Main Category</label>
+              <%= f.select :main_category, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["TravelItem", "TravelItem"], ["HouseItem", "HouseItem"], ["Other", "Other"]],
+                            id: "main_category", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Sub Category</label>
+              <%= f.select :sub_category, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]],
+                            id: "sub_category", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Status</label>
+              <%= f.select :status, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]],
+                            id: "status", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+        <div><%= f.submit "Create My Item", class: "btn btn-normal" %></div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

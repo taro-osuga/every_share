@@ -1,2 +1,50 @@
-<h1>Items#listing</h1>
-<p>Find me in app/views/items/listing.html.erb</p>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'item_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        Listing
+      </div>
+
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @items do |f| %>
+
+            <div class="row">
+
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Main Category</label>
+                  <%= f.select :main_category, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["TravelItem", "TravelItem"], ["HouseItem", "HouseItem"], ["Other", "Other"]],
+                                id: "main_category", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Sub Category</label>
+                  <%= f.select :sub_category, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]],
+                                id: "sub_category", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Status</label>
+                  <%= f.select :status, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]],
+                                id: "status", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+
+            <div><%= f.submit "Save", class: "btn btn-normal" %></div>
+
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

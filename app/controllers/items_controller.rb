@@ -7,15 +7,17 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item  = current_user.items.new
+    @item = current_user.items.new
   end
 
   def create
-    @item  = current_user.items.new(item_params)
+    @item = current_user.items.new(item_params)
+    
     if @item.save
       redirect_to listing_item_path(@item), notice: "Saved..."
     else
-      render :new, notice: "Something went wrong..."
+      flash[:alert] = "Something went wrong..."
+      render :new
     end
   end
 
@@ -38,17 +40,17 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @items.update(item_params)
       flash[:notice] = "Saved..."
     else
-      flash[:notice] = "Something went wrong..."
+      flash[:alert] = "Something went wrong..."
     end
     redirect_back(fallback_location: request.referer)
   end
 
   private
     def set_item
-      @atems = Item.find(params[:id])
+      @items = Item.find(params[:id])
     end
 
     def item_params
