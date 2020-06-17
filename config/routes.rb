@@ -15,5 +15,6 @@ Rails.application.routes.draw do
       get 'rentalarea'
     end
     resources :photos, only: [:create, :destroy]
+    resources :reservations, only: [:create]
   end
 end
