@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @photos = @items.photos
   end
 
   def listing
@@ -42,7 +43,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @items.update(item_params)
+    new_params = item_params
+    new_params = item_params.merge(active: true) if is_ready_item
+
+    if @items.update(new_params)
       flash[:notice] = "Saved..."
     else
       flash[:alert] = "Something went wrong..."
@@ -59,7 +63,11 @@ class ItemsController < ApplicationController
       redirect_to root_path, alert: "You don't have permission" unless current_user.id == @items.user_id
     end
 
+    def is_ready_item
+      !@items.active && !@items.price.blank? && !@items.item_name.blank? && !@items.photos.blank? && !@items.address.blank?
+    end
+
     def item_params
-      params.require(:item).permit(:main_category, :sub_category, :status, :item_name, :summary, :price, :active)
+      params.require(:item).permit(:main_category, :sub_category, :status, :item_name, :summary, :price, :address, :active)
     end
 end

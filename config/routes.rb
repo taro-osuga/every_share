@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'pricing'
       get 'description'
       get 'photo_upload'
-      get 'location'
+      get 'rentalarea'
     end
     resources :photos, only: [:create, :destroy]
   end
