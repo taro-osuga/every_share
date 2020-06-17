@@ -49,3 +49,4 @@ gem 'rmagick'
 gem 'fog'
 
 gem 'geocoder'
+gem 'dotenv-rails'
