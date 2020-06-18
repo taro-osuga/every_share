@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Your Listings", items_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Rentals", your_rentals_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your Rentals
+      </div>
+      <div class="panel-body">
+
+        <% @rentals.each do |rental| %>
+          <div class="row">
+            <div class="col-md-2">
+                <%= rental.start_date.strftime('%v') %>
+            </div>
+            <div class="col-md-4">
+            <%= link_to item_path(rental.item) do %>
+              <%= image_tag rental.item.cover_photo(:thumb)%>
+            <% end %>
+            </div>
+            <div class="col-md-6">
+              <%= link_to rental.item.item_name, items_path(rental.item) %><br/><br/>
+              <span>
+                <%= image_tag avatar_url(rental.item.user), class: "img-circle avatar-medium" %>
+                <%= link_to user_path(rental.item.user) do %>
+                    <%= rental.item.user.name %>
+                <% end %>
+              </span>
+              <div class="col-md-3 text-right">
+              
+            </div>
+            </div>
+          </div>
+          <hr/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,13 +22,13 @@ class ReservationsController < ApplicationController
       redirect_to item
     end
   
-    # def your_trips
-    #   @trips = current_user.reservations.order(start_date: :asc)
-    # end
+    def your_rentals
+      @rentals = current_user.reservations.order(start_date: :asc)
+    end
   
-    # def your_reservations
-    #   @items = current_user.items
-    # end
+    def your_reservations
+      @items = current_user.items
+    end
   
     private
       def reservation_params
