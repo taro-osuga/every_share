@@ -50,3 +50,4 @@ gem 'fog'
 
 gem 'geocoder'
 gem 'dotenv-rails'
+gem 'jquery-ui-rails'
