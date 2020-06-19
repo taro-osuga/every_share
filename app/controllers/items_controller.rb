@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
 
   def show
     @photos = @items.photos
+    @guest_reviews = @items.guest_reviews
   end
 
   def listing
