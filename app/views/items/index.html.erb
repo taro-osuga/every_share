@@ -15,14 +15,17 @@
 
         <% @items.each do |item| %>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <%= image_tag item.cover_photo(:thumb)%>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
               <h4><%= item.item_name %></h4>
             </div>
             <div class="col-md-2 right">
               <%= link_to "Edit", listing_item_path(item), class: "btn btn-form" %>
+            </div>
+            <div class="col-md-2 right">
+              <%= link_to "destroy", item_path(item.id), method: :delete, class: "btn btn-primary" %>
             </div>
           </div>
           <hr/>
