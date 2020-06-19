@@ -46,8 +46,10 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'rmagick'
-gem 'fog'
+# gem 'fog'
 
 gem 'geocoder'
 gem 'dotenv-rails'
 gem 'jquery-ui-rails'
+
+gem 'ransack'

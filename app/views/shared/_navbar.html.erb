@@ -17,6 +17,7 @@
                   <%= link_to "New Item", new_item_path, style: "color: white; text-decoration: none;" %>
                 </button>
               </li>
+              
               <% if (!user_signed_in?) %>
                 <li><%= link_to "Login" , new_user_session_path %></li>
                 <li><%= link_to "Sign Up" , new_user_registration_path %></li>
