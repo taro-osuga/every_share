@@ -17,7 +17,8 @@
             <% item.reservations.each do |reservation| %>
                 <div class="row">
                   <div class="col-md-2">
-                    <%= reservation.start_date.strftime('%v') %>
+                    <div class="text-babu"><%= "Start" %></div><%= reservation.start_date.strftime('%v') %><br/>
+                    <div class="text-babu"><%= "Return" %></div><%= reservation.end_date.strftime('%v') %>
                   </div>
                   <div class="col-md-3">
                     <%= link_to item_path(reservation.item) do %>
@@ -27,6 +28,7 @@
                   <div class="col-md-4">
                     <%= link_to reservation.item.item_name, item_path(reservation.item) %><br/><br/>
                     <span>
+                      <%= "Guest" %><br/>
                       <%= link_to user_path(reservation.user) do %>
                         <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
                         <%= reservation.user.name %>
