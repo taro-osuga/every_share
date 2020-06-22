@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 50}
 
-  has_many :items
-  has_many :reservations
+  has_many :items, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
-  has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
-  has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
+  has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id", dependent: :destroy
+  has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id", dependent: :destroy
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

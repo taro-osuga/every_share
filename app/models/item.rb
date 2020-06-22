@@ -1,9 +1,11 @@
 class Item < ApplicationRecord
     belongs_to :user
-    has_many :photos
-    has_many :reservations
+    has_many :photos, dependent: :destroy
+    has_many :reservations, dependent: :destroy
 
-    has_many :guest_reviews
+    has_many :guest_reviews, dependent: :destroy
+    has_many :host_reviews, dependent: :destroy
+    has_many :reviews, dependent: :destroy
 
     geocoded_by :address
     after_validation :geocode, if: :address_changed?

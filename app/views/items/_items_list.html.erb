@@ -1,5 +1,5 @@
 <% items.each do |item| %>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading preview">
           <%= image_tag item.cover_photo(:thumb) %>
@@ -7,7 +7,8 @@
         <div class="panel-body">
           <%= link_to item.item_name, item %><br/>
           ¥<%= item.price %> - <%= item.main_category %>
-          <div id="star_<%= item.id %>"></div> <%= pluralize(item.average_rating, "review") %>
+          <div id="star_<%= item.id %>"></div>
+          <%= pluralize(item.average_rating, "review") %>
         </div>
       </div>
     </div>
