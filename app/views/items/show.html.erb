@@ -18,7 +18,13 @@
         <h3><%= @items.address %></h3>
       </div>
       <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@items.user), class: "img-circle avatar-large" %><br/><br/>
+      <br/><br/>
+        <% if @items.user.image? %>
+          <img src='<%= @items.user.image %>'  class = "icon_image_large">
+        <% else %>
+          <img src="/assets/default.png"  class = "icon_image_large">
+        <% end %>
+        <br/><br/>
         <%= @items.user.name %>
       </div>
     </div>

@@ -14,8 +14,13 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form-control" %>
       </div>
 
-      <div class="form-grou">
+      <div class="form-group">
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class:"form-control" %>
+      </div><br />
+
+      <div class="form-group">
+        <%= f.label :image "プロフィール画像" %>
+        <%= f.file_field :image, autofocus: true, autocomplete: "image", placeholder: "image", class:"form-control" %>
       </div><br />
 
 

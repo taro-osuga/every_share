@@ -61,13 +61,11 @@
                 </div>
               </div>
               <hr/>
-
               <div class="row text-center">
                 <%= f.submit "Search", class: "btn btn-form" %>
-              </div>
+              </div><br/><br/>
           <% end %>
       </div>
-      <br/>
 
       <div class="row" id="item_listing">
         <%= render partial: "items/items_list", locals: {items: @arritems} %>
@@ -119,8 +117,8 @@
     $("#slider-range").slider({
       range: true,
       min: 0,
-      max: 1000,
-      values: [100, 500],
+      max: 10000,
+      values: [100, 7000],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);

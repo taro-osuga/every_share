@@ -28,13 +28,33 @@ a {
 
 // NAVBARS
 .navbar-default {
-  background-color: #ffffff;
+  background-color: #ffffffea;
 }
 
 .navbar-default .navbar-brand {
   color: #f85523;
   font-size: 2em;
   font-weight: 400;
+}
+
+.icon_image {
+  width: 25px;
+  height: 25px;
+  //サイズ指定
+  border-radius: 25px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.icon_image_large {
+  width: 50px;
+  height: 50px;
+  //サイズ指定
+  border-radius: 50px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
 }
 
 // BUTTONS
