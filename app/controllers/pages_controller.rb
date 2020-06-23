@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
   def home
-    @items = Item.where(active: true).limit(9)
+    @items = Item.where(active: true).limit(100)
   end
 
   def search
+    # @q = Item.ransack(params[:q])
+    # @items = @q.result(distinct: true)
+
     # STEP 1
     if params[:search].present? && params[:search].strip != ""
       session[:loc_search] = params[:search]

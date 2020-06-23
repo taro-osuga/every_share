@@ -27,7 +27,11 @@
             <div class="col-md-4">
               <%= link_to rental.item.item_name, items_path(rental.item) %><br/><br/>
               <span>
-                <%= image_tag avatar_url(rental.item.user), class: "img-circle avatar-medium" %>
+                <% if rental.user.image? %>
+                  <img src='<%= rental.user.image %>'  class = "icon_image_large">
+                <% else %>
+                  <img src="/assets/default.png"  class = "icon_image_large">
+                <% end %>
                 <%= link_to user_path(rental.item.user) do %>
                     <%= rental.item.user.name %>
                 <% end %>

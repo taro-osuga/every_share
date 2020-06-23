@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-    mount_uploader :image, ImageUploader
+    
     belongs_to :user
     has_many :photos, dependent: :destroy
     has_many :reservations, dependent: :destroy
