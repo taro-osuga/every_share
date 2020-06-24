@@ -25,10 +25,12 @@
             <% end %>
             </div>
             <div class="col-md-4">
-              <%= link_to rental.item.item_name, items_path(rental.item) %><br/><br/>
+            <%= link_to item_path(rental.item) do %>
+              <%= link_to rental.item.item_name, item_path(rental.item) %><br/><br/>
+            <% end %>
               <span>
-                <% if rental.user.image? %>
-                  <img src='<%= rental.user.image %>'  class = "icon_image_large">
+                <% if rental.item.user.image? %>
+                  <img src='<%= rental.item.user.image %>'  class = "icon_image_large">
                 <% else %>
                   <img src="/assets/default.png"  class = "icon_image_large">
                 <% end %>
