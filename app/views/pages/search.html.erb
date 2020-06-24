@@ -44,31 +44,35 @@
                 <div class="col-md-4">
                   <div class="form-group select">
                     <label>Main Category</label>
-                    <%= f.select :main_category_gteq, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["Travel_Item", "Travel_Item"], ["House_Item", "House_Item"], ["Other", "Other"]], id: "main_category", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :main_category_eq, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["Travel_Item", "Travel_Item"], ["House_Item", "House_Item"], ["Other", "Other"]], id: "main_category", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group select">
                     <label>Sub Category</label>
-                    <%= f.select :sub_category_gteq, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]], id: "sub_category", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :sub_category_eq, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]], id: "sub_category", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group select">
                     <label>Status</label>
-                    <%= f.select :status_gteq, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]], id: "status", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :status_eq, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]], id: "status", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
               </div>
-              <hr/>
+              <br/>
+
               <div class="row text-center">
                 <%= f.submit "Search", class: "btn btn-form" %>
-              </div><br/><br/>
+              </div>
           <% end %>
+          <br/>
       </div>
+      
+      
 
       <div class="row" id="item_listing">
-        <%= render partial: "items/items_list", locals: {items: @arritems} %>
+        <%= render partial: "items/items_list", locals: {items: @arrItems} %>
       </div>
 
     </div>
@@ -118,7 +122,7 @@
       range: true,
       min: 0,
       max: 10000,
-      values: [100, 7000],
+      values: [100, 500],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);

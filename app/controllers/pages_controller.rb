@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
   def home
-    @items = Item.where(active: true).limit(100)
+    # @items = Item.where(active: true).limit(100)
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
   def search
-    # @q = Item.ransack(params[:q])
-    # @items = @q.result(distinct: true)
+
 
     # STEP 1
     if params[:search].present? && params[:search].strip != ""
@@ -23,7 +24,7 @@ class PagesController < ApplicationController
     @search = @items_address.ransack(params[:q])
     @items = @search.result
 
-    @arritems = @items.to_a
+    @arrItems = @items.to_a
 
     # STEP 4
     if (params[:start_date] && params[:end_date] && !params[:start_date].empty? &&  !params[:end_date].empty?)
@@ -43,10 +44,15 @@ class PagesController < ApplicationController
         ).limit(1)
 
         if not_available.length > 0
-          @arritems.delete(item)
+          @arrItems.delete(item)
         end
       end
     end
 
+  end
+
+  private
+  def search_params
+    params.require(:q).permit!
   end
 end
