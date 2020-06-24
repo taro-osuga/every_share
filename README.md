@@ -39,6 +39,6 @@ https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&page
 ## 使用予定 Gem
 
 - carrierwave
-- mini_magick
+- rmagick
 - devise
 - ransack
