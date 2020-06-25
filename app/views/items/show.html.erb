@@ -22,7 +22,7 @@
         <% if @items.user.image? %>
           <img src='<%= @items.user.image %>'  class = "icon_image_large">
         <% else %>
-          <img src="/assets/default.png"  class = "icon_image_large">
+          <img src="<%= asset_path "default.png" %>"  class = "icon_image_large">
         <% end %>
         <br/><br/>
         <%= @items.user.name %>
@@ -160,7 +160,8 @@
 
 <script>
   $('#average_rating').raty({
-    path: '/assets',
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
     readOnly: true,
     score: <%= @items.average_rating %>
   });

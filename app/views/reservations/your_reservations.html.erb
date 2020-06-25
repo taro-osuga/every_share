@@ -33,7 +33,7 @@
                         <% if reservation.user.image? %>
                           <img src='<%= reservation.user.image %>'  class = "icon_image_large">
                         <% else %>
-                          <img src="/assets/default.png"  class = "icon_image_large">
+                          <img src="<%= asset_path "default.png" %>"  class = "icon_image_large">
                         <% end %>
                         <%= reservation.user.name %>
                       <% end %>

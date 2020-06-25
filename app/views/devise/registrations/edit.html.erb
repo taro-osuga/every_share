@@ -4,7 +4,7 @@
     <% if @user.image? %>
           <img src='<%= @user.image %>'  class = "avatar-full">
         <% else %>
-          <img src="/assets/default.png"  class = "avatar-full">
+          <img src="<%= asset_path "default.png" %>"  class = "avatar-full">
         <% end %>
       <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
     </ul>

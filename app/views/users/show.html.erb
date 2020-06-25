@@ -4,7 +4,7 @@
       <% if @user.image? %>
           <img src='<%= @user.image %>'  class = "avatar-full">
         <% else %>
-          <img src="/assets/default.png"  class = "avatar-full">
+          <img src="<%= asset_path "default.png" %>"  class = "avatar-full">
         <% end %>
     </div>
     <div class="panel panel-default">

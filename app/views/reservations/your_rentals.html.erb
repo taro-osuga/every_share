@@ -32,7 +32,7 @@
                 <% if rental.item.user.image? %>
                   <img src='<%= rental.item.user.image %>'  class = "icon_image_large">
                 <% else %>
-                  <img src="/assets/default.png"  class = "icon_image_large">
+                  <img src="<%= asset_path "default.png" %>"  class = "icon_image_large">
                 <% end %>
                 <%= link_to user_path(rental.item.user) do %>
                     <%= rental.item.user.name %>

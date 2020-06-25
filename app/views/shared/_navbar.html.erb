@@ -28,7 +28,7 @@
                       <% if current_user.image? %>
                         <img src='<%= current_user.image %>'  class = "icon_image">
                       <% else %>
-                        <img src="/assets/default.png"  class = "icon_image">
+                        <img src="<%= asset_path "default.png" %>"  class = "icon_image">
                       <% end %>
                       <%= current_user.name %> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
