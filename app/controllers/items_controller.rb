@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @items.destroy
-    redirect_to items_path, notice:"削除しました！"
+    redirect_to items_path, notice:"destroy！"
   end
 
   # --- Reservations ---
