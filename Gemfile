@@ -26,6 +26,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
@@ -71,3 +73,4 @@ gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'fog-aws'
+
