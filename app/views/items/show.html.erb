@@ -18,7 +18,13 @@
         <h3><%= @items.address %></h3>
       </div>
       <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@items.user), class: "img-circle avatar-large" %><br/><br/>
+      <br/><br/>
+        <% if @items.user.image? %>
+          <img src='<%= @items.user.image %>'  class = "icon_image_large">
+        <% else %>
+          <img src="/assets/default.png"  class = "icon_image_large">
+        <% end %>
+        <br/><br/>
         <%= @items.user.name %>
       </div>
     </div>
@@ -28,20 +34,20 @@
     <div class="row text-babu">
       <div class="row text-center row-space-1">
         <div class="col-md-4">
-          <i class="fa fa-check-square-o fa-2x"></i>
+          <%= "Main_category" %>
         </div>
         <div class="col-md-4">
-          <i class="fa fa-check-square-o fa-2x"></i>
+          <%= "Sub_category" %>
         </div>
         <div class="col-md-4">
-          <i class="fa fa-check-square-o fa-2x"></i>
+          <%= "Status" %>
         </div>
       </div>
 
       <div class="row text-center">
-        <div class="col-md-4"><%= @items.main_category %></div>
-        <div class="col-md-4"><%= @items.sub_category %></div>
-        <div class="col-md-4"><%= @items.status %></div>
+        <h4><div class="col-md-4"><%= @items.main_category %></div></h4>
+        <h4><div class="col-md-4"><%= @items.sub_category %></div></h4>
+        <h4><div class="col-md-4"><%= @items.status %></div></h4>
       </div>
 
 

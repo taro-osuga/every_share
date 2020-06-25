@@ -8,7 +8,11 @@
     <hr/>
     <div class="row">
       <div class="col-md-3 text-center">
-        <%= image_tag avatar_url(r.host), class: "img-circle avatar-medium" %><br/><br/>
+        <% if r.host.image? %>
+          <img src='<%= r.host.image %>'  class = "icon_image_large">
+        <% else %>
+          <img src="/assets/default.png"  class = "icon_image_large">
+        <% end %><br/><br/>
         <strong><%= r.host.name %></strong>
       </div>
       <div class="col-md-9">

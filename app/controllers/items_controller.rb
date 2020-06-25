@@ -55,6 +55,11 @@ class ItemsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
 
+  def destroy
+    @items.destroy
+    redirect_to items_path, notice:"destroy！"
+  end
+
   # --- Reservations ---
   def preload
     today = Date.today

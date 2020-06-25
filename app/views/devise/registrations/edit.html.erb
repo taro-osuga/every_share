@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
+    <% if @user.image? %>
+          <img src='<%= @user.image %>'  class = "avatar-full">
+        <% else %>
+          <img src="/assets/default.png"  class = "avatar-full">
+        <% end %>
       <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
     </ul>
     <br/>
@@ -41,6 +46,11 @@
             <div class="form-group">
               <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class:"form-control"  %>
             </div>
+
+            <%= "プロフィール画像" %>
+            <div class="form-group">
+            <%= f.file_field :image, autofocus: true, autocomplete: "image", placeholder: "image", class:"form-control" %>
+            </div><br />
 
             <div class="actions">
               <%= f.submit "Save", class: "btn btn-normal btn-block" %>

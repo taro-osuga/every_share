@@ -16,17 +16,24 @@
         <% @rentals.each do |rental| %>
           <div class="row">
             <div class="col-md-2">
-                <%= rental.start_date.strftime('%v') %>
+                <div class="text-babu"><%= "Start" %></div><%= rental.start_date.strftime('%v') %><br/>
+                <div class="text-babu"><%= "Return" %></div><%= rental.end_date.strftime('%v') %>
             </div>
             <div class="col-md-3">
             <%= link_to item_path(rental.item) do %>
-              <%= image_tag rental.item.cover_photo(:thumb)%>
+              <%= image_tag rental.item.cover_photo(:thumbmid)%>
             <% end %>
             </div>
             <div class="col-md-4">
-              <%= link_to rental.item.item_name, items_path(rental.item) %><br/><br/>
+            <%= link_to item_path(rental.item) do %>
+              <%= link_to rental.item.item_name, item_path(rental.item) %><br/><br/>
+            <% end %>
               <span>
-                <%= image_tag avatar_url(rental.item.user), class: "img-circle avatar-medium" %>
+                <% if rental.item.user.image? %>
+                  <img src='<%= rental.item.user.image %>'  class = "icon_image_large">
+                <% else %>
+                  <img src="/assets/default.png"  class = "icon_image_large">
+                <% end %>
                 <%= link_to user_path(rental.item.user) do %>
                     <%= rental.item.user.name %>
                 <% end %>

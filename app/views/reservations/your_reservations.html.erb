@@ -17,18 +17,24 @@
             <% item.reservations.each do |reservation| %>
                 <div class="row">
                   <div class="col-md-2">
-                    <%= reservation.start_date.strftime('%v') %>
+                    <div class="text-babu"><%= "Start" %></div><%= reservation.start_date.strftime('%v') %><br/>
+                    <div class="text-babu"><%= "Return" %></div><%= reservation.end_date.strftime('%v') %>
                   </div>
                   <div class="col-md-3">
                     <%= link_to item_path(reservation.item) do %>
-                        <%= image_tag reservation.item.cover_photo(:thumb) %>
+                        <%= image_tag reservation.item.cover_photo(:thumbmid) %>
                     <% end %>
                   </div>
                   <div class="col-md-4">
                     <%= link_to reservation.item.item_name, item_path(reservation.item) %><br/><br/>
                     <span>
+                      <%= "Guest" %><br/>
                       <%= link_to user_path(reservation.user) do %>
-                        <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-small" %>
+                        <% if reservation.user.image? %>
+                          <img src='<%= reservation.user.image %>'  class = "icon_image_large">
+                        <% else %>
+                          <img src="/assets/default.png"  class = "icon_image_large">
+                        <% end %>
                         <%= reservation.user.name %>
                       <% end %>
                     </span>
