@@ -53,7 +53,6 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'rmagick'
-# gem 'fog'
 
 gem 'geocoder'
 gem 'dotenv-rails'
@@ -63,3 +62,4 @@ gem 'ransack'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'fog-aws'

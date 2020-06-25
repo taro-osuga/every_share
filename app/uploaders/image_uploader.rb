@@ -1,6 +1,8 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
+  storage :fog
+
   if Rails.env.development?
     storage :file
   elsif Rails.env.test?
@@ -31,5 +33,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [300, 300]
   end
 
+  version :thumbmid do
+    process :resize_to_limit => [150, 150]
+  end
 end
 

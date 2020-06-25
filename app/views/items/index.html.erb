@@ -16,7 +16,7 @@
         <% @items.each do |item| %>
           <div class="row">
             <div class="col-md-3">
-              <%= image_tag item.cover_photo(:thumb)%>
+              <%= image_tag item.cover_photo(:thumbmid)%>
             </div>
             <div class="col-md-5">
               <h4><%= link_to item.item_name, item_path(item.id)%></h4>
