@@ -48,9 +48,9 @@ class ItemsController < ApplicationController
     new_params = item_params.merge(active: true) if is_ready_item
 
     if @items.update(new_params)
-      flash[:notice] = "Saved..."
+      flash[:notice] = "保存しました"
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = "入力不足があります"
     end
     redirect_back(fallback_location: request.referer)
   end

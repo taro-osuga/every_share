@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <span> ¥<%= @items.price %></span>
-    <span class="pull-right">一日</span>
+    <span class="pull-right">1日</span>
   </div>
   <div class="panel-body">    
     <%= form_for([@items, @items.reservations.new]) do |f| %>
