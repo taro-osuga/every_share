@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.new(item_params)
     
     if @item.save
-      redirect_to listing_item_path(@item), notice: "保存しました"
+      redirect_to pricing_item_path(@item), notice: "詳細登録して下さい"
     else
       flash[:alert] = "入力不足があります"
       render :new
