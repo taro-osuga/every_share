@@ -35,9 +35,9 @@ array6 = ["./app/assets/images/sample1.jpg","./app/assets/images/sample2.jpg",".
     )
   end
 
-200.times do |n|
-  Photo.create!(
-    item_id: "#{n + 1}",
-    image: open(array6.shuffle[rand(0..5)])
-  )
-end
+# 200.times do |n|
+#   Photo.create!(
+#     item_id: "#{n + 1}",
+#     image: open(array6.shuffle[rand(0..5)])
+#   )
+# end

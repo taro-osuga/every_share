@@ -1,7 +1,6 @@
 ja:
   activerecord:
     models:
-      blog: ブログ
       user: ユーザー
       item: アイテム
     attributes:
@@ -25,3 +24,4 @@ ja:
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
         pricing: 値段
+        Saved...: 保存しました

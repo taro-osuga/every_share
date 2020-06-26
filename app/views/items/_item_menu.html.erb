@@ -1,28 +1,28 @@
 <ul class="sidebar-list">
   <li class="sidebar-item">
-    <%= link_to "Listing", listing_item_path, class: "sidebar-link active" %>
+    <%= link_to "アイテム概要", listing_item_path, class: "sidebar-link" %>
     <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
-    <%= link_to "Pricing", pricing_item_path, class: "sidebar-link active" %>
+    <%= link_to "値段", pricing_item_path, class: "sidebar-link" %>
     <% if !@items.price.blank? %>
       <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
     <% end %>
   </li>
   <li class="sidebar-item">
-    <%= link_to "Description", description_item_path, class: "sidebar-link active" %>
+    <%= link_to "詳細", description_item_path, class: "sidebar-link" %>
     <% if !@items.item_name.blank? %>
       <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
     <% end %>  
   </li>
   <li class="sidebar-item">
-    <%= link_to "Photos", photo_upload_item_path, class: "sidebar-link active" %>
+    <%= link_to "写真", photo_upload_item_path, class: "sidebar-link" %>
     <% if !@items.photos.blank? %>
       <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"></i></span>
     <% end %>
   </li>
   <li class="sidebar-item">
-    <%= link_to "Rental Area", rentalarea_item_path, class: "sidebar-link active" %>
+    <%= link_to "レンタルエリア", rentalarea_item_path, class: "sidebar-link" %>
     <% if !@items.address.blank? %>
       <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
     <% end %>
@@ -34,5 +34,5 @@
 
 <%= form_for @items do |f| %>
   <%= f.hidden_field :active, value: true %>
-  <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+  <%= f.submit "登録", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
 <% end %>

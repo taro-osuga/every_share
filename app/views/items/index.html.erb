@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Listings", items_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Rentals", your_rentals_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "あなたのアイテム一覧", items_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "あなたの予約一覧", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "あなたへの予約一覧", your_rentals_path, class: "sidebar-link" %></li>
     </ul>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Listings
+        出品一覧
       </div>
       <div class="panel-body">
 
@@ -22,10 +22,10 @@
               <h4><%= link_to item.item_name, item_path(item.id)%></h4>
             </div>
             <div class="col-md-2 right">
-              <%= link_to "Edit", listing_item_path(item), class: "btn btn-form" %>
+              <%= link_to "編集", listing_item_path(item), class: "btn btn-form" %>
             </div>
             <div class="col-md-2 right">
-              <%= link_to "destroy", item_path(item.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+              <%= link_to "削除", item_path(item.id), method: :delete, data: {confirm: '本当にいいですか?'}, class: "btn btn-danger" %>
             </div>
           </div>
           <hr/>
