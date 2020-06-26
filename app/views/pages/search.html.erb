@@ -116,13 +116,13 @@
 <script>
   $(function() {
     $("#q_price_gteq").val('100');
-    $("#q_price_lteq").val('500');
+    $("#q_price_lteq").val('3000');
 
     $("#slider-range").slider({
       range: true,
       min: 0,
       max: 10000,
-      values: [100, 500],
+      values: [100, 3000],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);
