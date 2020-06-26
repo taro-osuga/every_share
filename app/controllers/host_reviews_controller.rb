@@ -1,29 +1,15 @@
 class HostReviewsController < ApplicationController
 
-    def create
-      # Step 1: Check if the reservation exist (item_id, guest_id, host_id)
-  
-      # Step 2: Check if the current host already reviewed the guest in this reservation.
-  
-      @reservation = Reservation.where(
-                      id: host_review_params[:reservation_id],
-                      item_id: host_review_params[:item_id],
-                      user_id: host_review_params[:guest_id]
-                     ).first
+    def create  
+      @reservation = Reservation.research.first
   
       if !@reservation.nil?
-  
-        @has_reviewed = HostReview.where(
-                          reservation_id: @reservation.id,
-                          guest_id: host_review_params[:guest_id]
-                        ).first
+        @has_reviewed = HostReview.hostresearch.first
   
         if @has_reviewed.nil?
-            # Allow to review
             @host_review = current_user.host_reviews.create(host_review_params)
             flash[:success] = "Review created..."
         else
-            # Already reviewed
             flash[:success] = "You already reviewed this Reservation"
         end
       else

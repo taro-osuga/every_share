@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
         end
   
         @photos = @item.photos
-        redirect_to rentalarea_item_path(@item), notice: "Saved..."
+        redirect_back(fallback_location: request.referer, notice: "写真登録しました")
       end
     end
   

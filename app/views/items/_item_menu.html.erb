@@ -34,5 +34,5 @@
 
 <%= form_for @items do |f| %>
   <%= f.hidden_field :active, value: true %>
-  <%= f.submit "登録", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+  <%= f.submit "最終登録", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
 <% end %>
