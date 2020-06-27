@@ -15,9 +15,9 @@ class ItemsController < ApplicationController
     @item = current_user.items.new(item_params)
     
     if @item.save
-      redirect_to listing_item_path(@item), notice: "Saved..."
+      redirect_to pricing_item_path(@item), notice: "詳細登録して下さい"
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = "入力不足があります"
       render :new
     end
   end
@@ -45,19 +45,25 @@ class ItemsController < ApplicationController
 
   def update
     new_params = item_params
-    new_params = item_params.merge(active: true) if is_ready_item
+    new_params.merge(active: true) if is_ready_item
 
     if @items.update(new_params)
-      flash[:notice] = "Saved..."
+      if is_ready_item
+        redirect_to item_path(@items), notice:"詳細登録しました！"
+      else
+        flash[:notice] = "保存しました"
+        redirect_back(fallback_location: request.referer)
+      end
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = "入力不足があります"
+      redirect_back(fallback_location: request.referer)
     end
-    redirect_back(fallback_location: request.referer)
+     
   end
 
   def destroy
     @items.destroy
-    redirect_to items_path, notice:"destroy！"
+    redirect_to items_path, notice:"削除しました！"
   end
 
   # --- Reservations ---
@@ -94,7 +100,7 @@ class ItemsController < ApplicationController
     end
 
     def is_ready_item
-      !@items.active && !@items.price.blank? && !@items.item_name.blank? && !@items.photos.blank? && !@items.address.blank?
+      @items.active && @items.price.present? && @items.item_name.present? && @items.photos.present? && @items.address.present?
     end
 
     def item_params

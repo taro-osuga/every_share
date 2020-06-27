@@ -1,33 +1,21 @@
 class HostReviewsController < ApplicationController
 
-    def create
-      # Step 1: Check if the reservation exist (item_id, guest_id, host_id)
-  
-      # Step 2: Check if the current host already reviewed the guest in this reservation.
-  
-      @reservation = Reservation.where(
-                      id: host_review_params[:reservation_id],
-                      item_id: host_review_params[:item_id],
-                      user_id: host_review_params[:guest_id]
-                     ).first
-  
+    def create  
+       @reservation = Reservation.host_reviews_search(host_review_params[:reservation_id],host_review_params[:item_id],host_review_params[:guest_id])
+
       if !@reservation.nil?
   
-        @has_reviewed = HostReview.where(
-                          reservation_id: @reservation.id,
-                          guest_id: host_review_params[:guest_id]
-                        ).first
+        @has_reviewed = HostReview.host_has_reviewed(@reservation.id,host_review_params[:guest_id].to_i)
+
   
-        if @has_reviewed.nil?
-            # Allow to review
+        if @has_reviewed.blank?
             @host_review = current_user.host_reviews.create(host_review_params)
-            flash[:success] = "Review created..."
+            flash[:success] = "レビューを送信しました"
         else
-            # Already reviewed
-            flash[:success] = "You already reviewed this Reservation"
+            flash[:success] = "既にレビューがあります"
         end
       else
-        flash[:alert] = "Not found this reservation"
+        flash[:alert] = "予約が見つかりません"
       end
   
       redirect_back(fallback_location: request.referer)
@@ -37,7 +25,7 @@ class HostReviewsController < ApplicationController
       @host_review = Review.find(params[:id])
       @host_review.destroy
   
-      redirect_back(fallback_location: request.referer, notice: "Removed...!")
+      redirect_back(fallback_location: request.referer, notice: "削除しました!")
     end
   
     private

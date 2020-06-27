@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    Create your item
+    アイテム登録
   </div>
   <div class="panel-body">
     <div class="container">
@@ -11,7 +11,7 @@
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label>Main Category</label>
+              <label>メインカテゴリー</label>
               <%= f.select :main_category, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["Travel_Item", "Travel_Item"], ["House_Item", "House_Item"], ["Other", "Other"]],
                             id: "main_category", prompt: "Select...", class: "form-control" %>
             </div>
@@ -19,7 +19,7 @@
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label>Sub Category</label>
+              <label>サブカテゴリー</label>
               <%= f.select :sub_category, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]],
                             id: "sub_category", prompt: "Select...", class: "form-control" %>
             </div>
@@ -27,14 +27,14 @@
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label>Status</label>
+              <label>アイテム状態</label>
               <%= f.select :status, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]],
                             id: "status", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
-
-        <div><%= f.submit "Create My Item", class: "btn btn-normal" %></div>
-
+        <div class="col-md-4 select">
+          <div><%= f.submit "仮登録", class: "btn btn-normal" %></div>
+        </div>
       <% end %>
 
     </div>

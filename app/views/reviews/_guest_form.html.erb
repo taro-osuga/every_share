@@ -1,6 +1,6 @@
 <!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-normal" data-toggle="modal" data-target="#myModal_<%= reservation.id %>">
-  Review Host
+  ホストへのレビュー
 </button>
 
 <!-- Modal -->
@@ -11,7 +11,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-left">Review Your Host</h4>
+        <h4 class="modal-title text-left">ホストへのレビュー</h4>
       </div>
       <div class="modal-body">
         <%= form_for current_user.guest_reviews.new do |f| %>
@@ -27,7 +27,7 @@
             <%= f.hidden_field :host_id, value: reservation.item.user.id %>
 
             <div class="text-center">
-              <%= f.submit "Add Review", class: "btn btn-normal" %>
+              <%= f.submit "レビュー記入", class: "btn btn-normal" %>
             </div>
         <% end %>
       </div>
@@ -38,9 +38,9 @@
 
 <script>
   $('#stars_<%= reservation.id %>').raty({
-    starOff:  '<%= asset_path('star-off.png') %>',
+    starOff: '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     scoreName: 'guest_review[star]',
-    score: 1
+    score:  1 
   });
 </script>

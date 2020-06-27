@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.raty
 //= require activestorage
 //= require toastr
 //= require_tree .

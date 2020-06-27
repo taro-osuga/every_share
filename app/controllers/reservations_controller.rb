@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
       item = Item.find(params[:item_id])
   
       if current_user == item.user
-        flash[:alert] = "You cannot book your own property!"
+        flash[:alert] = "自分のアイテムには予約出来ません!"
       else
         start_date = Date.parse(reservation_params[:start_date])
         end_date = Date.parse(reservation_params[:end_date])
@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
         @reservation.total = item.price * days
         @reservation.save
   
-        flash[:notice] = "Booked Successfully!"
+        flash[:notice] = "予約完了!"
       end
       redirect_to item
     end

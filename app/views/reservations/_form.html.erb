@@ -1,17 +1,17 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <span> ¥<%= @items.price %></span>
-    <span class="pull-right">Per Night</span>
+    <span class="pull-right">1日</span>
   </div>
   <div class="panel-body">    
     <%= form_for([@items, @items.reservations.new]) do |f| %>
       <div class="row">
         <div class="col-md-6">
-          <label>Rental Start</label>
+          <label>開始日</label>
           <%= f.text_field :start_date, readonly: true, placeholder: "Start", class: "form-control datepicker" %>
         </div>
         <div class="col-md-6">
-        <label>Return Day</label>
+        <label>返却日</label>
           <%= f.text_field :end_date, readonly: true, placeholder: "Return", class: "form-control datepicker", disabled: true %>
         </div>
       </div>
@@ -21,15 +21,15 @@
         <table class="reservation-table">
           <tbody>
             <tr>
-              <td>Price</td>
+              <td>値段</td>
               <td class="text-right">¥<%= @items.price %></td>
             </tr>
             <tr>
-              <td>Night(s)</td>
+              <td>日数</td>
               <td class="text-right">x <span id="reservation_nights"></span></td>
             </tr>
             <tr>
-              <td class="total">Total</td>
+              <td class="total">合計</td>
               <td class="text-right">¥<span id="reservation_total"></span></td>
             </tr>
           </tbody>
@@ -37,7 +37,7 @@
       </div>
 
       <br/>
-      <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <%= f.submit "予約する", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
     <% end %>
   </div>
 </div>
