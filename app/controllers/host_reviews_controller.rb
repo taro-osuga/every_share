@@ -1,18 +1,12 @@
 class HostReviewsController < ApplicationController
 
-    def create
-      @reservation = Reservation.where(
-        id: host_review_params[:reservation_id],
-        item_id: host_review_params[:item_id],
-        user_id: host_review_params[:guest_id]
-       ).first
-  
+    def create  
+       @reservation = Reservation.host_reviews_search(host_review_params[:reservation_id],host_review_params[:item_id],host_review_params[:guest_id])
+
       if !@reservation.nil?
   
-        @has_reviewed = HostReview.where(
-          reservation_id: @reservation.id,
-          guest_id: host_review_params[:guest_id]
-        ).first
+        @has_reviewed = HostReview.host_has_reviewed(@reservation.id,host_review_params[:guest_id].to_i)
+
   
         if @has_reviewed.blank?
             @host_review = current_user.host_reviews.create(host_review_params)

@@ -1,19 +1,13 @@
 class GuestReviewsController < ApplicationController
 
     def create    
-        @reservation = Reservation.where(
-          id: guest_review_params[:reservation_id],
-          item_id: guest_review_params[:item_id]
-         ).first
+        @reservation = Reservation.guest_reviews_search(guest_review_params[:reservation_id],guest_review_params[:item_id])
   
       if !@reservation.nil? && @reservation.item.user.id == guest_review_params[:host_id].to_i
   
-        @has_reviewed = GuestReview.where(
-          reservation_id: @reservation.id,
-          host_id: guest_review_params[:host_id]
-        ).first
-
-        if @has_reviewed.nil?
+        @has_reviewed = GuestReview.host_has_reviewed(@reservation.id,guest_review_params[:host_id].to_i)
+        
+        if @has_reviewed.blank?
             @guest_review = current_user.guest_reviews.create(guest_review_params)
             flash[:success] = "レビューを送信しました"
         else
