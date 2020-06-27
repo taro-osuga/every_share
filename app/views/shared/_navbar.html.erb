@@ -43,6 +43,7 @@
                     <li><%= link_to "あなたのアイテムへの予約", your_reservations_path %></li>
                     <li><%= link_to "あなたの予約", your_rentals_path %></li>
                     <li role="separator" class="divider"></li>
+                    <li><%= link_to "マイページ", user_path(current_user.id) %></li>
                     <li><%= link_to "プロフィール編集" , edit_user_registration_path %></li>
                     <li><%= link_to "ログアウト" , destroy_user_session_path, method: :delete %></li>
                   </ul>
