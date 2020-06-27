@@ -27,6 +27,10 @@ a {
 }
 
 // NAVBARS
+.navbar-login {
+  background-color: #ffffffea;
+}
+
 .navbar-default {
   background-color: #ffffffea;
 }
@@ -37,6 +41,11 @@ a {
   font-weight: 400;
 }
 
+.navbar-login .navbar-brand {
+  color: #f85523;
+  font-size: 2em;
+  font-weight: 400;
+}
 .icon_image {
   width: 25px;
   height: 25px;
@@ -103,8 +112,8 @@ a {
 }
 
 .btn.btn-form {
-  border: 1px solid #7fb069;
-  background-color: #7fb069;
+  border: 1px solid #54863c;
+  background-color: #54863c;
 }
 
 .btn.btn-form:active {
