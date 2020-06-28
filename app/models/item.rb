@@ -14,6 +14,7 @@ class Item < ApplicationRecord
     validates :main_category, presence: true
     validates :sub_category, presence: true
     validates :status, presence: true
+    validates :price, numericality: true, if: :price_check
 
     def cover_photo(size)
       if self.photos.length > 0
@@ -25,5 +26,9 @@ class Item < ApplicationRecord
 
     def average_rating
       guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
+    end
+
+    def price_check
+      self.price.present?
     end
 end
