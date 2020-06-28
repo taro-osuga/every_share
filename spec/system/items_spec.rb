@@ -14,18 +14,18 @@ RSpec.describe 'Item', type: :system do
     it 'アイテム新規登録' do
       
       visit new_item_path 
-      select 'Outdoor', from: 'item_main_category'
-      select 'Wear', from: 'item_sub_category'
-      select 'A', from: 'item_status'
+      select 'アウトドア', from: 'item_main_category'
+      select '洋服', from: 'item_sub_category'
+      select '綺麗', from: 'item_status'
       click_on '仮登録'
       expect(page).to have_content '詳細登録して下さい'
     end
 
     it 'アイテム詳細登録' do
       visit new_item_path
-      select 'Outdoor', from: 'item_main_category'
-      select 'Wear', from: 'item_sub_category'
-      select 'A', from: 'item_status'
+      select 'アウトドア', from: 'item_main_category'
+      select '洋服', from: 'item_sub_category'
+      select '綺麗', from: 'item_status'
       click_on '仮登録'
       fill_in "price", with: 100
       click_on '値段設定保存'
@@ -35,7 +35,7 @@ RSpec.describe 'Item', type: :system do
       click_on 'アイテム説明保存'
       click_on '写真'
       attach_file 'images_', "#{Rails.root}/spec/factories/sample1.jpg", make_visible: true
-      click_on '写真追加'
+      click_on '写真保存'
       click_on 'レンタルエリア'
       fill_in 'autoaddress', with: 'tokyo'
       click_on 'レンタルエリア保存'
@@ -46,17 +46,17 @@ RSpec.describe 'Item', type: :system do
     it 'アイテム登録エラー' do
       
       visit new_item_path 
-      select 'Wear', from: 'item_sub_category'
-      select 'A', from: 'item_status'
+      select '洋服', from: 'item_sub_category'
+      select '綺麗', from: 'item_status'
       click_on '仮登録'
       expect(page).to have_content '入力不足があります'
     end
 
     it 'アイテム詳細登録エラー' do
       visit new_item_path
-      select 'Outdoor', from: 'item_main_category'
-      select 'Wear', from: 'item_sub_category'
-      select 'A', from: 'item_status'
+      select 'アウトドア', from: 'item_main_category'
+      select '洋服', from: 'item_sub_category'
+      select '綺麗', from: 'item_status'
       click_on '仮登録'
       click_on '値段設定保存'
       expect {
@@ -66,9 +66,9 @@ RSpec.describe 'Item', type: :system do
 
     it 'アイテム編集' do
       visit new_item_path
-      select 'Outdoor', from: 'item_main_category'
-      select 'Wear', from: 'item_sub_category'
-      select 'A', from: 'item_status'
+      select 'アウトドア', from: 'item_main_category'
+      select '洋服', from: 'item_sub_category'
+      select '綺麗', from: 'item_status'
       click_on '仮登録'
       fill_in "price", with: 100
       click_on '値段設定保存'
@@ -78,23 +78,23 @@ RSpec.describe 'Item', type: :system do
       click_on 'アイテム説明保存'
       click_on '写真'
       attach_file 'images_', "#{Rails.root}/spec/factories/sample1.jpg", make_visible: true
-      click_on '写真追加'
+      click_on '写真保存'
       click_on 'レンタルエリア'
       fill_in 'autoaddress', with: 'tokyo'
       click_on 'レンタルエリア保存'
       click_on '最終登録'
       visit items_path
       click_link '編集'
-      select 'Sports', from: 'item_main_category'
+      select 'スポーツ', from: 'item_main_category'
       click_on '概要保存'
-      expect(page).to have_content 'Sports'
+      expect(page).to have_content 'スポーツ'
     end
 
     it 'アイテム削除' do
       visit new_item_path
-      select 'Outdoor', from: 'item_main_category'
-      select 'Wear', from: 'item_sub_category'
-      select 'A', from: 'item_status'
+      select 'アウトドア', from: 'item_main_category'
+      select '洋服', from: 'item_sub_category'
+      select '綺麗', from: 'item_status'
       click_on '仮登録'
       fill_in "price", with: 100
       click_on '値段設定保存'
@@ -104,7 +104,7 @@ RSpec.describe 'Item', type: :system do
       click_on 'アイテム説明保存'
       click_on '写真'
       attach_file 'images_', "#{Rails.root}/spec/factories/sample1.jpg", make_visible: true
-      click_on '写真追加'
+      click_on '写真保存'
       click_on 'レンタルエリア'
       fill_in 'autoaddress', with: 'tokyo'
       click_on 'レンタルエリア保存'
