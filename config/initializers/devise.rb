@@ -298,4 +298,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :facebook, '269184870829215' , '635f7c2c771e773c663efd8d58c74ec0' , scope: 'email' , info_fields: 'email, name'
+  config.scoped_views = true
 end

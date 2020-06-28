@@ -6,10 +6,11 @@
         <% else %>
           <img src="<%= asset_path "default.png" %>"  class = "avatar-full">
         <% end %>
-      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
-    </ul>
     <br/>
     <%= link_to "プロフィール確認", user_path(current_user.id), class: "btn btn-default" %>
+    <br/>
+    <%= link_to "ユーザー削除", root_path, method: :delete, data: {confirm: '本当に削除していいですか?'}, class: "btn btn-default-danger" %>
+    </ul>
   </div>
   <div class="col-md-9 text-center">
     <div class="panel panel-default">

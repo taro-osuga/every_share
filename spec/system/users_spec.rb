@@ -8,10 +8,10 @@ RSpec.describe 'User', type: :system do
   describe "アカウント作成" do
     it 'アカウントが作成され、同時にログインされること' do
       visit new_user_registration_path
-      fill_in 'Name', with: 'true'
-      fill_in 'Email', with: 'testtt@sample.com'
-      fill_in 'Password', with: 'password'
-      click_on 'Sign up'
+      fill_in '名前', with: 'true'
+      fill_in 'メールアドレス', with: 'testtt@sample.com'
+      fill_in '新しいパスワード', with: 'password'
+      click_on 'アカウント登録'
       expect(page).to have_content 'アカウント登録が完了しました。'
     end
   end
@@ -19,9 +19,9 @@ RSpec.describe 'User', type: :system do
   describe "ログイン" do
     before do
       visit new_user_session_path
-      fill_in 'Email', with: 'email@example.com'
-      fill_in 'Password', with: 'email@example.com'
-      click_on 'Log in'
+      fill_in 'メールアドレス', with: 'email@example.com'
+      fill_in 'パスワード', with: 'email@example.com'
+      click_button 'ログイン'
     end
 
     it '正しくログインされること' do
@@ -35,8 +35,22 @@ RSpec.describe 'User', type: :system do
     it '正しくログアウトできること' do
       sleep(5)
       click_on 'ユーザーA'
-      click_on 'Log out'
+      click_on 'ログアウト'
       expect(page).to have_content 'ログアウトしました'
+    end
+
+    it 'ユーザー編集できるか' do
+      visit edit_user_registration_path
+      fill_in '名前', with: 'TARO'
+      click_on '保存'
+      expect(page).to have_content 'アカウント情報を変更しました'
+    end
+
+    it 'ユーザー退会できるか' do
+      visit edit_user_registration_path
+      click_on 'ユーザー削除'
+      page.driver.browser.switch_to.alert.accept
+      expect(page).to have_content 'ログイン'
     end
   end
 end

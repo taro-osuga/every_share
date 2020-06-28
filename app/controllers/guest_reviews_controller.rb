@@ -5,7 +5,7 @@ class GuestReviewsController < ApplicationController
   
       if !@reservation.nil? && @reservation.item.user.id == guest_review_params[:host_id].to_i
   
-        @has_reviewed = GuestReview.host_has_reviewed(@reservation.id,guest_review_params[:host_id].to_i)
+        @has_reviewed = GuestReview.guest_has_reviewed(@reservation.id,guest_review_params[:host_id].to_i)
         
         if @has_reviewed.blank?
             @guest_review = current_user.guest_reviews.create(guest_review_params)
