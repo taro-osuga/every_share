@@ -44,19 +44,19 @@
                 <div class="col-md-4">
                   <div class="form-group select">
                     <label>メインカテゴリー</label>
-                    <%= f.select :main_category_eq, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["Travel_Item", "Travel_Item"], ["House_Item", "House_Item"], ["Other", "Other"]], id: "main_category", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :main_category_eq, [["アウトドア", "アウトドア"], ["スポーツ", "スポーツ"], ["旅行アイテム", "旅行アイテム"], ["ハウスアイテム", "ハウスアイテム"], ["その他", "その他"]], id: "main_category", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group select">
                     <label>サブカテゴリー</label>
-                    <%= f.select :sub_category_eq, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]], id: "sub_category", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :sub_category_eq, [["洋服", "洋服"], ["グッズ", "グッズ"], ["小物", "小物"], ["その他", "その他"]], id: "sub_category", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group select">
                     <label>アイテム状態</label>
-                    <%= f.select :status_eq, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]], id: "status", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :status_eq, [["綺麗", "綺麗"], ["普通", "普通"], ["汚い", "汚い"], ["ボロボロ", "ボロボロ"]], id: "status", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
               </div>

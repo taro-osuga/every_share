@@ -18,7 +18,7 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>メインカテゴリー</label>
-                  <%= f.select :main_category, [["Outdoor", "Outdoor"], ["Sports", "Sports"], ["Travel_Item", "Travel_Item"], ["House_Item", "House_Item"], ["Other", "Other"]],
+                  <%= f.select :main_category, [["アウトドア", "アウトドア"], ["スポーツ", "スポーツ"], ["旅行アイテム", "旅行アイテム"], ["ハウスアイテム", "ハウスアイテム"], ["その他", "その他"]],
                                 id: "main_category", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
@@ -26,7 +26,7 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>サブカテゴリー</label>
-                  <%= f.select :sub_category, [["Wear", "Wear"], ["Goods", "Goods"], ["Item", "Item"], ["Other", "Other"]],
+                  <%= f.select :sub_category, [["洋服", "洋服"], ["グッズ", "グッズ"], ["小物", "小物"], ["その他", "その他"]],
                                 id: "sub_category", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
@@ -34,7 +34,7 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>アイテムの状態</label>
-                  <%= f.select :status, [["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]],
+                  <%= f.select :status, [["綺麗", "綺麗"], ["普通", "普通"], ["汚い", "汚い"], ["ボロボロ", "ボロボロ"]],
                                 id: "status", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
