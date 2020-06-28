@@ -2,7 +2,7 @@
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading preview">
-          <%= image_tag item.cover_photo(:thumb) %>
+          <%= image_tag item.cover_photo(:thumb) , class: "item_list_image"%>
         </div>
         <div class="panel-body">
           <%= link_to item.item_name, item %><br/>
