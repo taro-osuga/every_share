@@ -1,37 +1,34 @@
 <div class="row">
-  <div class="col-md-3">
-    <div class="center">
+  <div class="row">
+    <div class="sidebar-list">
       <% if @user.image? %>
-          <img src='<%= @user.image %>'  class = "avatar-full">
-        <% else %>
-          <img src="<%= asset_path "default.png" %>"  class = "avatar-full">
-        <% end %>
+        <img src='<%= @user.image %>'  class = "avatar-full">
+      <% else %>
+        <img src="<%= asset_path "default.png" %>"  class = "avatar-full">
+      <% end %>
+      <h2><%= @user.name %></h2>
     </div>
   </div>
-
-  <div class="col-md-9">
-    <h2><%= @user.name %></h2>
-
-    <div class="description row-space-3">
-      <%= @user.description %>
-    </div>
-    <h4>出品一覧 (<%= @items.length %>)</h4><br/>
-  
-      <div class="row">
-        <%= render partial: "items/items_list", locals: {items: @items} %>
-      </div>
-      <br/>
+  <br/>
   
       <h4>ゲストからのレビュー (<%= @guest_reviews.count %>)</h4>
-      <div class="row">
-        <%= render "reviews/guest_list" %>
-      </div>
+        <div class="row">
+          <%= render "reviews/guest_list" %>
+        </div>
       <br/>
   
       <h4>出品者からのレビュー (<%= @host_reviews.count %>)</h4>
-      <div class="row">
-        <%= render "reviews/host_list" %>
+        <div class="row">
+          <%= render "reviews/host_list" %>
+        </div>
+  <br/>
+
+  <div class="col-md-12">
+    <div class="row">
+      <%= @user.description %>
+    <h4>出品一覧 (<%= @items.length %>)</h4><br/>
+        <%= render partial: "items/items_list", locals: {items: @items} %>
       </div>
-      <br/>
-    </div>
   </div>
+  </div>
+</div>

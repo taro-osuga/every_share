@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
     end
   
     def your_rentals
-      @rentals = current_user.reservations.order(start_date: :asc)
+      @rentals = current_user.reservations.where("reservations.start_date > ?", DateTime.now).order(start_date: :asc)
     end
   
     def your_reservations
