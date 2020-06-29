@@ -8,7 +8,8 @@
           <%= link_to item.item_name, item %><br/>
           <%= item.address %><br/>
           ¥<%= item.price %><br/>
-          <%= item.main_category %> - <%= item.sub_category %> - <%= item.status %>
+          <%= item.main_category %> - <%= item.sub_category %><br/>
+          <%= item.status %>
           <div id="star_<%= item.id %>"></div>
           <%= pluralize(item.average_rating, "review") %>
         </div>
