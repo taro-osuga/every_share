@@ -48,7 +48,7 @@
               <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class:"form-control"  %>
             </div>
 
-            <%= "プロフィール画像" %>
+            <%= t('devise.registrations.edit.profile image') %>
             <div class="form-group">
             <%= f.file_field :image, autofocus: true, autocomplete: "image", placeholder: "image", class:"form-control" %>
             </div><br />
